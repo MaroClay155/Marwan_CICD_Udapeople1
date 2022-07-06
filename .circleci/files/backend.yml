@@ -7,7 +7,7 @@ Parameters:
     Type: String
 
 Resources:
-  InstanceSecurityGroup2:
+  InstanceSecurityGroup3:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: !Sub UdaPeople-${ID}
@@ -34,18 +34,18 @@ Resources:
           ToPort: 9093
           CidrIp: 0.0.0.0/0
 
-  EC2Instance2:
+  EC2Instance3:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
       SecurityGroups:
-        - Ref: InstanceSecurityGroup2
+        - Ref: InstanceSecurityGroup3
       KeyName: marokey # If you use another key pair name, you should change this value to match.
       # If this ami id is not available for you, you can find another (https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)
       # Ubuntu 18 or higher works fine
       ImageId: ami-068663a3c619dd892
       Tags:
         - Key: Name
-          Value: backend2
+          Value: backend3
         - Key: monitor
-          Value: nodeexporter2
+          Value: nodeexporter3
