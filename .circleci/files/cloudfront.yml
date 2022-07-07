@@ -9,13 +9,13 @@ Parameters:
 
 Resources:
   
-  CloudFrontOriginAccessIdentity3:
+  CloudFrontOriginAccessIdentity4:
     Type: "AWS::CloudFront::CloudFrontOriginAccessIdentity"
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment: Origin Access Identity for Serverless Static Website
 
-  WebpageCDN3:
+  WebpageCDN4:
     Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
@@ -23,7 +23,7 @@ Resources:
           - DomainName: !Sub "udapeople-${WorkflowID}.s3.amazonaws.com"
             Id: webpage
             S3OriginConfig:
-              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity3}"
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity4}"
         Enabled: True
         DefaultRootObject: index.html
         DefaultCacheBehavior:
