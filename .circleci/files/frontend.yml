@@ -7,7 +7,7 @@ Parameters:
     Type: String
 
 Resources:
-  WebsiteBucket3:
+  WebsiteBucket4:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "udapeople-${ID}"
@@ -16,19 +16,19 @@ Resources:
         IndexDocument: index.html
         ErrorDocument: 404.html
   
-  WebsiteBucketPolicy3:
+  WebsiteBucketPolicy4:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref 'WebsiteBucket3'
+      Bucket: !Ref 'WebsiteBucket4'
       PolicyDocument:
         Statement:
         - Sid: PublicReadForGetBucketObjects
           Effect: Allow
           Principal: '*'
           Action: s3:GetObject
-          Resource: !Join ['', ['arn:aws:s3:::', !Ref 'WebsiteBucket3', /*]]
+          Resource: !Join ['', ['arn:aws:s3:::', !Ref 'WebsiteBucket4', /*]]
 
 Outputs:
   WebsiteURL:
-    Value: !GetAtt WebsiteBucket3.WebsiteURL
+    Value: !GetAtt WebsiteBucket4.WebsiteURL
     Description: URL for website hosted on S3
